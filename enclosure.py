@@ -21,3 +21,23 @@ class Enclosure:
     # getter for environment type
     def get_environment_type(self):
         return self._environment_type
+
+    # this adds an animal to the enclosure
+    def add_animal(self, animal):
+        self._animals.append(animal)
+        print(animal.get_name() + " added to enclosure.")
+
+    # this removes an animal by name
+    def remove_animal(self, animal_name):
+        for animal in self._animals:
+            if animal.get_name().lower() == animal_name.lower():
+                self._animals.remove(animal)
+                print(animal_name + " removed from enclosure.")
+                return
+        print(animal_name + " not found in enclosure.")
+
+    # this lists all animals in this enclosure
+    def list_animals(self):
+        for animal in self._animals:
+            print("- " + animal.get_name())
+
