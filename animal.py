@@ -10,24 +10,31 @@ This is my own work as defined by the University's Academic Integrity Policy.
 
 class Animal:
     def __init__(self, name, species, age, diet_type):
-        self.name = name
-        self.species = species
-        self.age = age
-        self.diet_type = diet_type
-        self.health_issues = []
+        self._name = name
+        self._species = species
+        self._age = age
+        self._diet_type = diet_type
+        self._health_issues = []
+
+    # Used Getter method
+    def get_name(self):
+        return self._name
+
+    def get_species(self):
+        return self._species
 
     def make_sound(self):
-        return self.name + " makes a sound"
+        return self._name + " makes a sound"
 
     def eat(self):
-        return self.name + " is eating " + self.diet_type + " food"
+        return self._name + " is eating " + self._diet_type + " food"
 
     def sleep(self):
-        return self.name + " is sleeping"
+        return self._name + " is sleeping"
 
     def add_health_issue(self, issue):
-        self.health_issues.append(issue)
+        self._health_issues.append(issue)
 
     def is_healthy(self):
-        return self.health_issues == []
+        return self._health_issues == []
 
