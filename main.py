@@ -14,12 +14,19 @@ from staff import Staff
 print("=== Prince's Zoo Simulation ===")
 
 # create an animal
-tiger = Animal("liger", "Tiger", 8, "Meat")
+tiger = Animal("Liger", "Tiger", 8, "Meat")
 print("Animal created:", tiger.get_name())
 
 # create an enclosure
-den = Enclosure("Large", "Den")
+den = Enclosure("Large", "Tiger Habitat")
 print("Enclosure created:", den.get_environment_type())
+
+# test cleanliness
+print("Cleanliness:", den.get_cleanliness())
+den.make_dirty()
+print("After dirtying:", den.get_cleanliness())
+den.clean()
+print("After cleaning:", den.get_cleanliness())
 
 # add animal to enclosure
 den.add_animal(tiger)
