@@ -32,7 +32,7 @@ print("After cleaning:", den.get_cleanliness())
 den.add_animal(tiger)
 
 # list animals in enclosure
-print("Animals in enclosure:")
+print("Animals in enclosure: ", end="")
 den.list_animals()
 
 # create staff

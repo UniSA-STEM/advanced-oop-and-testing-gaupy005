@@ -55,5 +55,8 @@ class Enclosure:
 
     # this lists all animals in this enclosure
     def list_animals(self):
-        for animal in self._animals:
-            print("- " + animal.get_name())
+        if self._animals == []:
+            print("None")
+        else:
+            for animal in self._animals:
+                print("- " + animal.get_name())
