@@ -13,17 +13,34 @@ class Enclosure:
         self._size = size
         self._environment_type = environment_type
         self._animals = []
+        self._cleanliness = 100  # when it's 100 it's fully clean
 
     # getter for size
     def get_size(self):
         return self._size
 
-    # getter for environment type
+    # getter for environmental type
     def get_environment_type(self):
         return self._environment_type
 
-    # this adds an animal to the enclosure
+    # getter for cleanliness
+    def get_cleanliness(self):
+        return self._cleanliness
+
+    # this makes enclosure dirty
+    def make_dirty(self):
+        self._cleanliness -= 10
+
+    # this cleans the enclosure
+    def clean(self):
+        self._cleanliness = 100
+
+    # this adds an animal to their environmental needs
     def add_animal(self, animal):
+        if self._environment_type.lower() not in animal.get_species().lower():
+            print("Wrong environment for this animal.")
+            return
+
         self._animals.append(animal)
         print(animal.get_name() + " added to enclosure.")
 
@@ -40,4 +57,3 @@ class Enclosure:
     def list_animals(self):
         for animal in self._animals:
             print("- " + animal.get_name())
-
