@@ -7,6 +7,7 @@ Username: gaupy005
 This is my own work as defined by the University's Academic Integrity Policy.
 '''
 
+from health_record import HealthRecord
 
 class Animal:
     def __init__(self, name, species, age, diet_type):
@@ -14,9 +15,9 @@ class Animal:
         self._species = species
         self._age = age
         self._diet_type = diet_type
-        self._health_issues = []
+        self._health_records = []
 
-    # Used Getter method
+    # Getter methods
     def get_name(self):
         return self._name
 
@@ -32,9 +33,13 @@ class Animal:
     def sleep(self):
         return self._name + " is sleeping"
 
-    def add_health_issue(self, issue):
-        self._health_issues.append(issue)
+    # this creates health record function
+    def add_health_record(self, record: HealthRecord):
+        self._health_records.append(record)
+
+    def list_health_records(self):
+        for record in self._health_records:
+            print("- " + record.get_description())
 
     def is_healthy(self):
-        return self._health_issues == []
-
+        return self._health_records == []
