@@ -10,6 +10,7 @@ This is my own work as defined by the University's Academic Integrity Policy.
 from animal import Animal
 from enclosure import Enclosure
 from staff import Staff
+from health_record import HealthRecord
 
 print("=== Prince's Zoo Simulation ===")
 
@@ -45,3 +46,9 @@ keeper.clean_enclosure(den)
 keeper.check_health(tiger)
 
 print("=== Demo Finished ===")
+
+record = HealthRecord("Minor injury", "2025-11-23", "Low", "Rest given")
+tiger.add_health_record(record)
+
+print("Health Records:")
+tiger.list_health_records()
