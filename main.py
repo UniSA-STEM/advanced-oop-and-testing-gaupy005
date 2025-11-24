@@ -59,4 +59,10 @@ schedule.add_task("Clean enclosure")
 print("Today's tasks:")
 schedule.list_tasks()
 
+# Demonstrate validation (invalid age test)
+try:
+    aggressive = Animal("Aggressive", "Unknown", -5, "Food")
+except ValueError as e:
+    print("Error:", e)
+
 print("=== Demo Finished ===")
