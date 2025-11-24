@@ -12,11 +12,13 @@ from enclosure import Enclosure
 from staff import Staff
 from health_record import HealthRecord
 from schedule import Schedule
+from mammal import Mammal
+from zoo_report import ZooReport
 
 print("=== Prince's Zoo Simulation ===")
 
 # create an animal
-tiger = Animal("Liger", "Tiger", 8, "Meat")
+tiger = Animal("Rocky", "Tiger Habitat", 8, "Meat")
 print("Animal created:", tiger.get_name())
 
 # create an enclosure
@@ -46,12 +48,14 @@ keeper.feed_animal(tiger)
 keeper.clean_enclosure(den)
 keeper.check_health(tiger)
 
+# add health record
 record = HealthRecord("Minor injury", "2025-11-23", "Low", "Rest given")
 tiger.add_health_record(record)
 
 print("Health Records:")
 tiger.list_health_records()
 
+# scheduling demo
 schedule = Schedule()
 schedule.add_task("Feed animals")
 schedule.add_task("Clean enclosure")
@@ -59,10 +63,20 @@ schedule.add_task("Clean enclosure")
 print("Today's tasks:")
 schedule.list_tasks()
 
-# Demonstrate validation (invalid age test)
+# validation demo
 try:
     aggressive = Animal("Aggressive", "Unknown", -5, "Food")
 except ValueError as e:
     print("Error:", e)
+
+# mammal demo
+tiger_mammal = Mammal("Rocky", "Tiger", 8, "Meat", "Orange")
+
+report = ZooReport()
+report.list_animals_by_species([tiger_mammal])
+report.report_enclosure(den)
+
+print("Animal sound test:")
+print(tiger_mammal.make_sound())
 
 print("=== Demo Finished ===")
