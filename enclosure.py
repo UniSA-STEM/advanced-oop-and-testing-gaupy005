@@ -35,12 +35,13 @@ class Enclosure:
     def clean(self):
         self._cleanliness = 100
 
-    # this adds an animal to their environmental needs
+    # this adds an animal to the enclosure
     def add_animal(self, animal):
+        # check if animal matches the enclosure environment
         if self._environment_type.lower() not in animal.get_species().lower():
             print("Wrong environment for this animal.")
             return
-
+        # add animal to enclosure
         self._animals.append(animal)
         print(animal.get_name() + " added to enclosure.")
 
