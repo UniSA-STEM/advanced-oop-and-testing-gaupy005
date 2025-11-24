@@ -11,6 +11,7 @@ from animal import Animal
 from enclosure import Enclosure
 from staff import Staff
 from health_record import HealthRecord
+from schedule import Schedule
 
 print("=== Prince's Zoo Simulation ===")
 
@@ -45,10 +46,17 @@ keeper.feed_animal(tiger)
 keeper.clean_enclosure(den)
 keeper.check_health(tiger)
 
-print("=== Demo Finished ===")
-
 record = HealthRecord("Minor injury", "2025-11-23", "Low", "Rest given")
 tiger.add_health_record(record)
 
 print("Health Records:")
 tiger.list_health_records()
+
+schedule = Schedule()
+schedule.add_task("Feed animals")
+schedule.add_task("Clean enclosure")
+
+print("Today's tasks:")
+schedule.list_tasks()
+
+print("=== Demo Finished ===")
