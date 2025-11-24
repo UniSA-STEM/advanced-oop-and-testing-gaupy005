@@ -11,6 +11,8 @@ from health_record import HealthRecord
 
 class Animal:
     def __init__(self, name, species, age, diet_type):
+        if age < 0:
+            raise ValueError("Age cannot be less than 0")
         self._name = name
         self._species = species
         self._age = age
