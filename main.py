@@ -63,12 +63,6 @@ schedule.add_task("Clean enclosure")
 print("Today's tasks:")
 schedule.list_tasks()
 
-# validation demo
-try:
-    aggressive = Animal("Aggressive", "Unknown", -5, "Food")
-except ValueError as e:
-    print("Error:", e)
-
 # mammal demo
 tiger_mammal = Mammal("Rocky", "Tiger", 8, "Meat", "Orange")
 
