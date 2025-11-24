@@ -29,7 +29,8 @@ class Enclosure:
 
     # this makes enclosure dirty
     def make_dirty(self):
-        self._cleanliness -= 10
+        if self._cleanliness >= 10:
+            self._cleanliness -= 10
 
     # this cleans the enclosure
     def clean(self):
@@ -37,11 +38,10 @@ class Enclosure:
 
     # this adds an animal to the enclosure
     def add_animal(self, animal):
-        # check if animal matches the enclosure environment
+        # simple environment check
         if self._environment_type.lower() not in animal.get_species().lower():
             print("Wrong environment for this animal.")
             return
-        # add animal to enclosure
         self._animals.append(animal)
         print(animal.get_name() + " added to enclosure.")
 
